@@ -11,6 +11,12 @@ class TripRepresentation
         $this->boardingCards = $boardingCards;
     }
 
+    /**
+     * Generates list of the messages generated based on the boarding cards processed by the algorithm.
+     * Each item in the array is an ready-to-display string describing the trip step.
+     *
+     * @return array Array of the boarding cards ordered from starting point to the last point of the trip.
+     */
     public function generateList() : array
     {
         if (empty($this->boardingCards)) {
@@ -28,6 +34,10 @@ class TripRepresentation
         return $list;
     }
 
+    /**
+     * Obtains the messages list using TripRepresentation::generateList()
+     * and prints all messages.
+     */
     public function print() : void
     {
         $list = $this->generateList();

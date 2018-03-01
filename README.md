@@ -28,9 +28,22 @@ Please note that `composer test` command runs both PHPCS check and PHPUnit tests
 
 ## About the algorithm
 
+The algorithm uses lookup table and executes with *O(3n) complexity*. Here are the steps:
+1. Create linked list of the trip legs - O(1n) complexity
+2. Find starting point (the lookup table's entry which has departure set to NULL) - O(1n) complexity
+3. Iterate through lookup table's entries and generate final list - O(1n) complexity
+
 ## Limitations
 
+1. Departure and destination points must be unique, eg. you can't go from Warsaw to Wroclaw and back from Wroclaw to Warsaw.
+2. Boarding cards chain must be continuous.
+3. Maximum name of a single point must be shorter than 255 characters (maximum array index length).
+
 ## Adding new boarding cards
+
+In order to add new boarding card representation, you have to do two things:
+1. Implement new class in the TripSorter\BoardingCard namespace. New class should extend BoardinCardBase and implement BoardingCardInterface.
+2. Add class name from the point 1 to the BoardingCardFactory's constructor (in the same way as all other representations).
 
 ## Time log
 
@@ -39,3 +52,4 @@ Please note that `composer test` command runs both PHPCS check and PHPUnit tests
 3. 20m - implement unit tests (at this stage all are failing)
 4. 15m - implement boarding cards models
 5. 15m - implement trip representation, factory and cards processor
+6. 30m - implement the main logic and index file, final cleanup
