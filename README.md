@@ -36,3 +36,4 @@ Please note that `composer test` command runs both PHPCS check and PHPUnit tests
 
 1. 30m - plan of action (project structure, classes names)
 2. 10m - prepare initial project structure including empty classes
+3. 20m - implement unit tests (at this stage all are failing)
