@@ -6,6 +6,10 @@ class TripSorter
 {
     public function analyzeBoardingCards(array $boardingCardsData) : TripRepresentation
     {
-        return new TripRepresentation($boardingCardsData);
+        $boardingCards = BoardingCardsProcessor::processCards($boardingCardsData);
+
+        // logic goes here
+
+        return new TripRepresentation($boardingCards);
     }
 }
